@@ -8,5 +8,5 @@
 * Create an administrator with the command line : "php bin/console fos:user:create adminuser --super-admin"
 
 
-![Warning](http://img.clipartall.com/warning-cliparts-the-warning-clipart-5784_3612.jpg)
+![Warning](https://cdn2.iconfinder.com/data/icons/freecns-cumulus/32/519791-101_Warning-128.png)
 This Symfony project can't run without php >= 7 !
