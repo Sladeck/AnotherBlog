@@ -1,5 +1,4 @@
 # Another Blog in Symfony
-======
 
 
 ### How to install
