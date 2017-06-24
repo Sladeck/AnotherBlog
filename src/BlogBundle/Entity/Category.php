@@ -28,6 +28,21 @@ class Category
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Articles", inversedBy="articles")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $articles;
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    public function __construct()
+    {
+        $this->setName('');
+    }
 
     /**
      * Get id
@@ -63,4 +78,3 @@ class Category
         return $this->name;
     }
 }
-

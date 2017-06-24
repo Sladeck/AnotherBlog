@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Articles
@@ -52,7 +53,7 @@ class Articles
     /**
      * @var string
      *
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="name")
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="name", cascade={"persist", "remove"})
      */
     private $category;
 
