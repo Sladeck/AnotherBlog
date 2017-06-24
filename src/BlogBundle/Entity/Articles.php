@@ -3,7 +3,6 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Articles
@@ -37,6 +36,12 @@ class Articles
     private $description;
 
     /**
+     *
+     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     */
+    private $author;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_oc", type="datetime")
@@ -51,9 +56,19 @@ class Articles
     private $dateOm;
 
     /**
-     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="post")
      */
-    private $author;
+    private $category;
+
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
 
     /**
      * Get id
@@ -114,6 +129,30 @@ class Articles
     }
 
     /**
+     * Set author
+     *
+     * @param string $author
+     *
+     * @return Articles
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
      * Set dateOc
      *
      * @param \DateTime $dateOc
@@ -126,6 +165,7 @@ class Articles
 
         return $this;
     }
+
 
     /**
      * Get dateOc
@@ -159,53 +199,5 @@ class Articles
     public function getDateOm()
     {
         return $this->dateOm;
-    }
-
-    /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return Articles
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     *
-     * @return Articles
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
     }
 }

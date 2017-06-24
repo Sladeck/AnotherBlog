@@ -24,10 +24,31 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Articles", mappedBy="category")
+     */
+   private $posts;
+
+
+   public function __construct()
+   {
+       $this->articles = new ArrayCollection();
+       $this->setName('');
+   }
+
+   public function getArticles()
+   {
+       return $this->posts;
+   }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /**
      * Get id
@@ -63,4 +84,3 @@ class Category
         return $this->name;
     }
 }
-

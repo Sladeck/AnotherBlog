@@ -14,6 +14,7 @@ class ArticlesAdmin extends AbstractAdmin
         $formMapper->add('title',       NULL, ['label' => "Titre"]);
         $formMapper->add('description', NULL, ['label' => "Description"]);
         $formMapper->add('author',      NULL, ['label' => "Auteur"]);
+        $formMapper->add('category',    NULL, ['label' => "Catégorie"]);
         $formMapper->add('dateOc',      NULL, ['label' => "Date de création"]);
         $formMapper->add('dateOm',      NULL, ['label' => "Date de modification"]);
     }
