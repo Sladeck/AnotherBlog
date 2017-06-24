@@ -11,12 +11,12 @@ class CategoryAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name',       NULL, ['label' => "Nom"]);
+        $formMapper->add('name',       NULL, ['label' => "Nom de la catégorie"]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+
     }
 
     protected function configureListFields(ListMapper $listMapper)

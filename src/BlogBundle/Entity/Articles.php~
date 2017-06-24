@@ -51,11 +51,6 @@ class Articles
     private $dateOm;
 
     /**
-     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
-     */
-    private $author;
-
-    /**
      * Get id
      *
      * @return int
