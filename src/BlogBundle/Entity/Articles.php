@@ -37,7 +37,7 @@ class Articles
 
     /**
      *
-     * @ORM\OneToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="articles")
      */
     private $author;
 

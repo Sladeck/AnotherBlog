@@ -30,6 +30,7 @@ class ArticlesAdmin extends AbstractAdmin
     {
         $listMapper->addIdentifier('title');
         $listMapper->add('description');
+        $listMapper->add('author');
         $listMapper->add('dateOc');
         $listMapper->add('dateOm');
     }

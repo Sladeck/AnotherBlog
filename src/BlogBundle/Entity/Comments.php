@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Comments
@@ -42,6 +43,76 @@ class Comments
      */
     private $dateOm;
 
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="comments")
+     */
+    private $author;
+
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Articles", inversedBy="comments")
+     */
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+        $this->setArticles('');
+    }
+
+    public function __toString()
+    {
+        return $this->getArticles();
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     *
+     * @return Articles
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set articles
+     *
+     * @param string $articles
+     *
+     * @return Articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+
+        return $this;
+    }
+
+    /**
+     * Get articles
+     *
+     * @return string
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
 
     /**
      * Get id

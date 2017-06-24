@@ -12,6 +12,8 @@ class CommentsAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('content',       NULL, ['label' => "Commentaire"]);
+        $formMapper->add('author',        NULL, ['label' => "Auteur"]);
+        $formMapper->add('articles',      NULL, ['label' => "Articles"]);
         $formMapper->add('dateOc',        NULL, ['label' => "Date de création"]);
         $formMapper->add('dateOm',        NULL, ['label' => "Date de modification"]);
     }
@@ -25,6 +27,7 @@ class CommentsAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('content');
+        $listMapper->addIdentifier('author');
         $listMapper->addIdentifier('dateOc');
         $listMapper->addIdentifier('dateOm');
     }
