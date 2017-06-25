@@ -56,9 +56,25 @@ class Articles
     private $dateOm;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="post")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="articles")
      */
     private $category;
+
+    /**
+    * @ORM\OneToMany(targetEntity="Comments", mappedBy="articles", cascade={"persist", "remove"})
+    */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->title = new ArrayCollection();
+        $this->setTitle('');
+    }
+
+     public function __toString()
+     {
+         return $this->getTitle();
+     }
 
     public function setCategory(Category $category)
     {

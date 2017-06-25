@@ -26,9 +26,10 @@ class CommentsAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('content');
-        $listMapper->addIdentifier('author');
-        $listMapper->addIdentifier('dateOc');
-        $listMapper->addIdentifier('dateOm');
+        $listMapper->addIdentifier('content',   NULL, ['label' => 'Contenu']);
+        $listMapper->addIdentifier('author',    NULL, ['label' => 'Auteur']);
+        $listMapper->addIdentifier('articles',  NULL, ['label' => 'Nom de l\'article']);
+        $listMapper->addIdentifier('dateOc',    NULL, ['label' => 'Date de création']);
+        $listMapper->addIdentifier('dateOm',    NULL, ['label' => 'Date de modification']);
     }
 }

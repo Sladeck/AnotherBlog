@@ -51,20 +51,9 @@ class Comments
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="Articles", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Articles", inversedBy="comments", cascade={"persist"})
      */
     private $articles;
-
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-        $this->setArticles('');
-    }
-
-    public function __toString()
-    {
-        return $this->getArticles();
-    }
 
     /**
      * Set author

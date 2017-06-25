@@ -40,14 +40,14 @@ class Category
        $this->setName('');
    }
 
-   public function getArticles()
-   {
-       return $this->posts;
-   }
-
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getArticles()
+    {
+        return $this->posts;
     }
 
     /**
