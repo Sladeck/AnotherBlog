@@ -28,6 +28,9 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
+            // Added for pagination (KNP)
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
             // Our Bundle,
             new BlogBundle\BlogBundle(),
         ];
