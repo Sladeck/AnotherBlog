@@ -1,15 +1,25 @@
 {% extends 'BlogBundle::layout.html.twig' %}
 
 {% block content %}
+<div class="row">
+  <div class="col-5 justify-content-center">
+    <h2>Bienvenue sur "AnotherBlog" !</h2>
+    <span><i>Un autre blog fait avec Sonata Admin et Fos User !</i></span>
+  </div>
+</div>
+
     <div class="row justify-content-center">
         {% for article in pagination %}
               <div class="col-5 col-auto articles">
                 <h3>{{ article.title }}</h3>
                 <div class="description_article">
-                    {{ article.description }}
+                    {{ article.description | truncate(5,true, '...') }}
                     <div class="dates_article">
                       Fait le : {{ article.dateOc | date("d/m/Y") }}
                     </div>
+                </div>
+                <div class="link_article">
+                  <a href="{{ path('show_article', {article_name: article.title}) }}">Lire plus...</a>
                 </div>
               </div>
         {% endfor %}
