@@ -69,8 +69,8 @@ class DefaultController extends Controller
         $comment->setArticles($article);
         $comment->setDateOc(new \DateTime());
         $form = $this->createFormBuilder($comment)
-            ->add('content', TextType::class, array('label' => 'Contenu : ', 'data' => ''))
-            ->add('save', SubmitType::class, array('label' => 'Commenter'))
+            ->add('content', TextType::class, array('label' => ' ', 'data' => ''))
+            ->add('save', SubmitType::class, array('label' => 'Commenter', 'attr' => array('class'=>'btn btn-primary')))
             ->getForm();
         $form->handleRequest($request);
 

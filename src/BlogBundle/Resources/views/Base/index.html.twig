@@ -17,7 +17,7 @@
                 <div class="description_article">
                     {{ article.description | truncate(200,true, '...') }}
                     <div class="dates_article">
-                      Fait le : {{ article.dateOc | date("d/m/Y") }}
+                      <i>{{ article.dateOc | date("d/m/Y") }}</i>
                     </div>
                 </div>
                 <div class="link_article">

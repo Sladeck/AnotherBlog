@@ -19,7 +19,7 @@ nav.navbar{
   float: right;
 }
 
-.articles h3{
+.articles h3, .article h3{
   display: inline-block;
 }
 .category a{
@@ -27,4 +27,19 @@ nav.navbar{
   display: inline-block;
   font-weight: bold;
   color: #c44848;
+}
+
+.btn{
+  margin: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.dates_article{
+  margin-top: 10px;
+}
+
+.date_oc{
+  float: right;
+  display: inline-block;
 }
