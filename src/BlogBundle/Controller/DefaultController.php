@@ -39,7 +39,7 @@ class DefaultController extends Controller
      */
     public function getByCategoryAction(Request $request, $category_name)
     {
-        $em = $this->getEntityManager();
+        $em = $this->getDoctrine()->getEntityManager();
         $dql = "SELECT a FROM BlogBundle:Articles a LEFT JOIN a.category c WHERE c.name='" . $category_name . "'";
         $query = $em->createQuery($dql);
         $paginator = $this->get('knp_paginator');
@@ -62,7 +62,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $repository = $em->getRepository('BlogBundle:Articles');
-        $article = $repository->findOneBy(array("title" => $article_name));
+        $article = $repository->findBy(array("title" => $article_name));
 
         $comment = new Comments();
         $comment->setAuthor($this->getUser());

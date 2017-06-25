@@ -1,0 +1,18 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+          {% for any in article %}
+            <h3>{{ any.title }}</h3>
+            <span>{{ any.dateOc | date("d/m/Y") }}</span>
+            <div class="description">
+                {{ any.description }}
+            </div>
+
+          {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

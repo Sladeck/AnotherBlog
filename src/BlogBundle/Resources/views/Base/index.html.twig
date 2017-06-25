@@ -12,14 +12,16 @@
         {% for article in pagination %}
               <div class="col-5 col-auto articles">
                 <h3>{{ article.title }}</h3>
+                <span class="category"><a href="{{ path('get_by_category', {category_name: article.category}) }}">{{article.category}}</a></span>
+                <hr>
                 <div class="description_article">
-                    {{ article.description | truncate(5,true, '...') }}
+                    {{ article.description | truncate(200,true, '...') }}
                     <div class="dates_article">
                       Fait le : {{ article.dateOc | date("d/m/Y") }}
                     </div>
                 </div>
                 <div class="link_article">
-                  <a href="{{ path('show_article', {article_name: article.title}) }}">Lire plus...</a>
+                  <a href="{{ path('show_article', {article_name: article.title}) }}" class="btn btn-primary" role="button">Lire plus...</a>
                 </div>
               </div>
         {% endfor %}

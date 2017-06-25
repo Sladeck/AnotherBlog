@@ -9,6 +9,22 @@ nav.navbar{
 .articles{
   width: auto;
   border: 1px solid black;
-  margin: 40px;
+  border-radius: 7px 7px 0px 0px;
+  margin: 30px;
   box-shadow: 2px 5px 10px 0px grey;
+  padding: 20px;
+}
+
+.link_article{
+  float: right;
+}
+
+.articles h3{
+  display: inline-block;
+}
+.category a{
+  float: right;
+  display: inline-block;
+  font-weight: bold;
+  color: #c44848;
 }
