@@ -60,14 +60,13 @@ class DefaultController extends Controller
      */
     public function showArticleAction(Request $request, $article_name)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $repository = $em->getRepository('BlogBundle:Articles');
-        $article = $repository->findBy(array("title" => $article_name));
+
+        $article = $this->getDoctrine()
+                        ->getRepository('BlogBundle:Articles')
+                        ->findBy(array("title" => $article_name));
 
         $comment = new Comments();
-        $comment->setAuthor($this->getUser());
-        $comment->setArticles($article);
-        $comment->setDateOc(new \DateTime());
+
         $form = $this->createFormBuilder($comment)
             ->add('content', TextType::class, array('label' => ' ', 'data' => ''))
             ->add('save', SubmitType::class, array('label' => 'Commenter', 'attr' => array('class'=>'btn btn-primary')))
